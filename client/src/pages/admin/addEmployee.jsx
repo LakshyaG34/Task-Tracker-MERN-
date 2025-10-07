@@ -1,35 +1,33 @@
 import React, { useState } from "react";
-import { useAuthContext } from "../context/authContext";
 
-const Login = () => {
+const AddEmployee = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setUser } = useAuthContext();
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleFetch = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch("http://localhost:5000/api/register", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
         credentials: "include",
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, email, password, confirmPassword, role : "employee" }),
       });
-      if (!response.ok) {
-        throw new Error("Error Fetching");
-      }
-      const data = await response.json();
-      setUser(data);
+      if (!response.ok) throw new Error("Signup failed");
+      setName("");
       setEmail("");
       setPassword("");
-      alert("Signed In");
-      console.log(data);
+      setConfirmPassword("");
+      alert("Signed up successfully!");
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-red-50 to-red-100">
       <form
@@ -37,10 +35,18 @@ const Login = () => {
         className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-sm border border-gray-100"
       >
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Welcome Back!!
+          Add Employee
         </h2>
 
         <div className="flex flex-col gap-4">
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+
           <input
             type="email"
             placeholder="Email Address"
@@ -51,9 +57,17 @@ const Login = () => {
 
           <input
             type="password"
-            placeholder="Enter Password"
+            placeholder="Create Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
           />
 
@@ -61,22 +75,12 @@ const Login = () => {
             type="submit"
             className="bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition focus:ring-2 focus:ring-blue-400 focus:outline-none"
           >
-            Log In
+            Add Employee
           </button>
         </div>
-
-        <p className="text-sm text-center text-gray-600 mt-4">
-          Don’t have an account?{" "}
-          <button
-            onClick={() => navigate("/signup")}
-            className="text-blue-600 hover:underline"
-          >
-            SignUp
-          </button>
-        </p>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default AddEmployee;
