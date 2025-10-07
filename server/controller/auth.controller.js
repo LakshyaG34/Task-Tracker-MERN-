@@ -63,6 +63,19 @@ export const login = async (req, res) => {
   }
 };
 
+export const logout = async(req, res) =>{
+  try{
+    const token = await req.cookies.jwt;
+    if(token)
+    {
+      res.clearCookie();
+    }
+  }catch(err)
+  {
+    console.log(err);
+  }
+}
+
 export const getMe = async(req, res) =>{
   try{
     const user = await Auth.findById(req.user?.id);

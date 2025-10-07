@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import { dbConnect } from "./lib/db.js";
 import authRouter from "./routes/auth.route.js"
+import taskRouter from "./routes/task.route.js"
 import cors from "cors"
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(cors({
     credentials:true
 }));
 app.use("/api", authRouter)
+app.use("/api", taskRouter)
 
 app.listen(PORT, ()=>{
     dbConnect();
