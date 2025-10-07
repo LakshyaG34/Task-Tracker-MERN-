@@ -65,14 +65,36 @@ export const login = async (req, res) => {
 
 export const logout = async(req, res) =>{
   try{
-    const token = await req.cookies.jwt;
+    const token = await req.cookies?.jwt;
     if(token)
     {
-      res.clearCookie();
+      res.clearCookie("jwt",{
+        httpOnly: true,
+        sameSite: "strict",
+      })
     }
+    res.status(200).json({message : "Logged Out"})
+  }
+  catch(err)
+  {
+    console.log(err);
+    res.status(500).json({Error : "Internal Server Error"})
+  }
+
+}
+
+export const getUsersByRole = async(req, res) =>{
+  try{
+    const {role} = req.query;
+    if (!role) {
+      return res.status(400).json({ error: "Role query parameter is required" });
+    }
+    const users = await Auth.find({ role });
+    res.status(200).json(users);
   }catch(err)
   {
     console.log(err);
+    res.status(500).json({Error : "Internal server error"})
   }
 }
 
