@@ -23,7 +23,7 @@ const ViewCard = ({ status, assignedTo, title, description, dueDate }) => {
         </span>
       </div>
       <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
-      <p className="text-gray-600 text-sm leading-relaxed">{assignedTo}</p>
+      <p className="text-gray-600 text-sm leading-relaxed">Assigned To {assignedTo}</p>
       <div className="flex justify-end text-sm text-gray-500">
         <span>Due: {new Date(dueDate).toLocaleDateString()}</span>
       </div>
