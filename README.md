@@ -107,6 +107,14 @@ PUT     /api/task/:taskId            Update task (employee)
 ```
 
 📸 Screenshots
+![6](https://github.com/user-attachments/assets/06ec5823-3483-432f-aa30-2e269ab54e39)
+![5](https://github.com/user-attachments/assets/57dcaa77-6ae2-4dd9-9dbc-b8fe00a62252)
+![4](https://github.com/user-attachments/assets/3b4feb4c-9ac5-49cb-9078-51cb7a5f7120)
+![3](https://github.com/user-attachments/assets/031babdd-9e8d-46bf-b62c-40353c346303)
+![2](https://github.com/user-attachments/assets/5531f573-1c49-4aed-aa03-86bc1e60cda4)
+![1](https://github.com/user-attachments/assets/377c8a5a-45cf-41c1-809b-6a624106a3fb)
+![Login](https://github.com/user-attachments/assets/9693020a-24f6-4da9-bfa5-b98768f81433)
+![7](https://github.com/user-attachments/assets/57d26ba1-af01-486c-b0df-44ee1648136c)
 
 
 
