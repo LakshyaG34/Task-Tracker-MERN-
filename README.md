@@ -107,14 +107,15 @@ PUT     /api/task/:taskId            Update task (employee)
 ```
 
 📸 Screenshots
-![6](https://github.com/user-attachments/assets/06ec5823-3483-432f-aa30-2e269ab54e39)
-![5](https://github.com/user-attachments/assets/57dcaa77-6ae2-4dd9-9dbc-b8fe00a62252)
-![4](https://github.com/user-attachments/assets/3b4feb4c-9ac5-49cb-9078-51cb7a5f7120)
-![3](https://github.com/user-attachments/assets/031babdd-9e8d-46bf-b62c-40353c346303)
-![2](https://github.com/user-attachments/assets/5531f573-1c49-4aed-aa03-86bc1e60cda4)
-![1](https://github.com/user-attachments/assets/377c8a5a-45cf-41c1-809b-6a624106a3fb)
-![Login](https://github.com/user-attachments/assets/9693020a-24f6-4da9-bfa5-b98768f81433)
-![7](https://github.com/user-attachments/assets/57d26ba1-af01-486c-b0df-44ee1648136c)
+![3](https://github.com/user-attachments/assets/743d8236-c6eb-4967-a2f5-f2bef67b1888)
+![2](https://github.com/user-attachments/assets/04020021-bbbc-4880-92e6-50e75bee9c3a)
+![1](https://github.com/user-attachments/assets/a76c270d-2cd4-45ab-8e30-37569b7fbea7)
+![8](https://github.com/user-attachments/assets/d2b35617-b944-42ff-8718-f124471f3ea8)
+![7](https://github.com/user-attachments/assets/e14fc2b8-6249-410e-876a-34f25728b055)
+![6](https://github.com/user-attachments/assets/56b7d464-6c3c-4e4f-857b-d927c2568a97)
+![5](https://github.com/user-attachments/assets/e9014bff-eae4-4b49-8fb0-6c7580dc31a8)
+![4](https://github.com/user-attachments/assets/aadf3d95-137b-4302-bcda-d097294dfd5f)
+
 
 
 
