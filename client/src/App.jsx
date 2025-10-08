@@ -15,6 +15,7 @@ import ViewTask from "./pages/admin/viewTask";
 import ViewOwnTask from "./pages/employee/viewOwnTask";
 import UpdateTask from "./pages/employee/updateTask";
 import ProtectedRoute from "./protectedRoute";
+import Welcome from "./components/welcome";
 
 function App() {
   const { user, loading } = useAuthContext();
@@ -62,6 +63,7 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route path = "/" element = {<Welcome/>}/>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route

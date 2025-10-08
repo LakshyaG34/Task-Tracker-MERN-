@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser } = useAuthContext();
+  const navigate = useNavigate();
 
   const handleFetch = async (e) => {
     e.preventDefault();
@@ -25,6 +27,7 @@ const Login = () => {
       setEmail("");
       setPassword("");
       alert("Signed In");
+      navigate("/");
       console.log(data);
     } catch (err) {
       console.log(err);
