@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const handleFetch = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/me", {
+        const response = await fetch("http://localhost:5000/api/auth/me", {
           credentials: "include",
         });
         if (!response.ok) {
@@ -33,7 +33,7 @@ function App() {
         dispatch(setUser(data.user));
 
         const employeeResponse = await fetch(
-          "http://localhost:5000/api/users?role=employee"
+          "http://localhost:5000/api/auth/users/?role=employee"
         );
         if (!employeeResponse.ok) {
           throw new Error("Error in fetch");
