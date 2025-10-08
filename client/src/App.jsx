@@ -5,18 +5,21 @@ import Admin from './pages/admin/admin';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUser } from './redux/userSlice';
 import { setEmployee } from './redux/employeeSlice';
+import { setTask } from './redux/taskSlice';
 import { useEffect } from 'react';
 import Employee from './pages/employee/employee';
 import Signup from './pages/signup';
 import AdminNavbar from './components/adminNavbar';
-// import EmployeeNavbar from './components/EmployeeNavbar';
+import EmployeeNavbar from './components/EmployeeNavbar';
 import AddEmployee from './pages/admin/addEmployee';
 import AddTask from './pages/admin/addTask';
 import ViewTask from './pages/admin/viewTask';
+import ViewOwnTask from './pages/employee/viewOwnTask';
+import UpdateTask from './pages/employee/updateTask';
 
 function App() {
   const {user, loading} = useAuthContext();
-  const role = useSelector((state) => state.user);
+  // const role = useSelector((state) => state.user);
   const dispatch = useDispatch();
   useEffect(() =>{
     const handleFetch = async() =>{
@@ -29,7 +32,7 @@ function App() {
           throw new Error("Error in fetch");
         }
         const data = await response.json();
-        dispatch(setUser(data.user.role));
+        dispatch(setUser(data.user));
 
         const employeeResponse = await fetch("http://localhost:5000/api/users?role=employee");
         if(!employeeResponse.ok)
@@ -39,6 +42,15 @@ function App() {
         const employeeData = await employeeResponse.json();
         console.log(employeeData);
         dispatch(setEmployee(employeeData))
+
+        const taskResponse = await fetch("http://localhost:5000/api/task");
+        if(!taskResponse.ok)
+        {
+          throw new Error("Error in fetch");
+        }
+        const taskData = await taskResponse.json();
+        // console.log(employeeData);
+        dispatch(setTask(taskData.tasks))
       }catch(err)
       {
         console.log(err);
@@ -50,7 +62,7 @@ function App() {
   {
     return <div>Loading...</div>
   }
-  console.log(role);
+  console.log(user.role);
   return (
     <div>
       {/* <div>
@@ -59,7 +71,7 @@ function App() {
         }
       </div> */}
       <Routes>
-        <Route path = "/" element = {user ? role === "admin" ? <Admin/> : <Employee/> : <Login/>}/>
+        {/* <Route path = "/" element = {user ? role === "admin" ? <Admin/> : <Employee/> : <Login/>}/> */}
         <Route path = "/admin/add/employee" element = {<div>
           <AdminNavbar/>
           <AddEmployee/>
@@ -72,6 +84,15 @@ function App() {
           <AdminNavbar/>
           <ViewTask/>
         </div>}/>
+        <Route path = "/employee/view" element = {<div>
+          <EmployeeNavbar/>
+          <ViewOwnTask/>
+        </div>}/>
+        <Route path = "/employee/update" element = {<div>
+          <EmployeeNavbar/>
+          <UpdateTask/>
+        </div>}/>
+        
         <Route path = "/signup" element = {<Signup/>}/>
         <Route path = "/login" element = {<Login/>}/>
       </Routes>

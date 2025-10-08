@@ -34,19 +34,19 @@ const AdminNavbar = () => {
           </div>
           <div className="hidden md:flex items-center gap-2">
             <button
-              onClick={() => navigate("/expense/add")}
+              onClick={() => navigate("/admin/add/employee")}
               className="border border-blue-400 text-blue-400 rounded-2xl px-2 py-1 cursor-pointer hover:bg-blue-100 transition-all duration-200"
             >
               Add Employee
             </button>
             <button
-              onClick={() => navigate("/balance")}
+              onClick={() => navigate("/admin/add/task")}
               className="border border-blue-400 text-blue-400 rounded-2xl px-2 py-1 cursor-pointer hover:bg-blue-100 transition-all duration-200"
             >
               Add Task
             </button>
             <button
-              onClick={() => navigate("/groups")}
+              onClick={() => navigate("/admin/view")}
               className="border border-blue-400 text-blue-400 rounded-2xl px-2 py-1 cursor-pointer hover:bg-blue-100 transition-all duration-200"
             >
               View All Task
@@ -90,19 +90,19 @@ const AdminNavbar = () => {
             {user ? (
               <div className="flex flex-col gap-1">
                 <button
-                  onClick={() => navigate("/expense/add")}
+                  onClick={() => navigate("/admin/add/employee")}
                   className="border border-blue-400 text-blue-400 rounded-2xl px-2 py-1 cursor-pointer hover:bg-blue-100 transition-all duration-200"
                 >
                   Add Employee
                 </button>
                 <button
-                  onClick={() => navigate("/balance")}
+                  onClick={() => navigate("/admin/add/task")}
                   className="border border-blue-400 text-blue-400 rounded-2xl px-2 py-1 cursor-pointer hover:bg-blue-100 transition-all duration-200"
                 >
                   Add Task
                 </button>
                 <button
-                  onClick={() => navigate("/groups")}
+                  onClick={() => navigate("/admin/view")}
                   className="border border-blue-400 text-blue-400 rounded-2xl px-2 py-1 cursor-pointer hover:bg-blue-100 transition-all duration-200"
                 >
                   View All Task
