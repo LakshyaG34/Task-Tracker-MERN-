@@ -24,23 +24,22 @@ const ViewOwnTask = () => {
     handleFetch();
   }, []);
   return (
-    <div>
+    <div className="p-6 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {
         taskData.length > 0 ? (
-            <ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     taskData.map((e) => (
-                        <li key = {e._id}>
-                            <ViewOwnCard
-                            status={e.status}
-                            title={e.title}
-                            description={e.description}
-                            dueDate={e.dueDate}
-                            />
-                        </li>
+                        <ViewOwnCard
+                        key = {e._id}
+                        status={e.status}
+                        title={e.title}
+                        description={e.description}
+                        dueDate={e.dueDate}
+                        />
                     ))
                 }
-            </ul>
+            </div>
         ) : (
             <p>"No Task Found"</p>
         )
