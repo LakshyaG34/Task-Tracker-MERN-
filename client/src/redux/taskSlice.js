@@ -1,8 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit"
 
 const taskSlice = createSlice({
-    name: "user",
-    initialState : [],
+    name: "task",
+    initialState : {},
     reducers: {
         setTask: (state, action) => action.payload
     }

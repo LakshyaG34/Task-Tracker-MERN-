@@ -40,7 +40,7 @@ function App() {
           throw new Error("Error in fetch");
         }
         const employeeData = await employeeResponse.json();
-        console.log(employeeData);
+        // console.log(employeeData);
         dispatch(setEmployee(employeeData))
 
         const taskResponse = await fetch("http://localhost:5000/api/task");
@@ -49,8 +49,8 @@ function App() {
           throw new Error("Error in fetch");
         }
         const taskData = await taskResponse.json();
-        // console.log(employeeData);
-        dispatch(setTask(taskData.tasks))
+        dispatch(setTask(taskData))
+        // console.log(taskData);
       }catch(err)
       {
         console.log(err);
@@ -62,7 +62,7 @@ function App() {
   {
     return <div>Loading...</div>
   }
-  console.log(user.role);
+  // console.log(user.role);
   return (
     <div>
       {/* <div>

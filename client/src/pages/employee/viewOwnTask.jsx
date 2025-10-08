@@ -5,10 +5,6 @@ import { useSelector } from "react-redux";
 const ViewOwnTask = () => {
   const user = useSelector((state) => state.user);
   const userId = user._id;
-//   let total = 0;
-//   let page = 0;
-//   let limit = 0;
-//   let totalPage = 0;
   const [taskData, setTaskData] = useState([]);
   useEffect(() => {
     const handleFetch = async () => {
@@ -20,10 +16,6 @@ const ViewOwnTask = () => {
           throw new Error("Error caught");
         }
         const data = await response.json();
-        // total = data.total;
-        // page = data.page;
-        // limit = data.limit;
-        // totalPage = data.totalPage;
         setTaskData(data.tasks);
       } catch (err) {
         console.log(err);
