@@ -9,8 +9,4 @@ router.post("/login", login)
 router.post("/logout", logout)
 router.get("/me", protectRoute, getMe)
 router.get("/users", getUsersByRole)
-// router.get("/auth", (req, res)=>{
-//     res.send("hello")
-// })
-
 export default router;
